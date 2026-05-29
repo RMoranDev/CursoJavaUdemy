@@ -2,25 +2,28 @@ package empresa.dados;
 
 public class Funcionario {
     private String nome;
-    String cargo;
-    int idade;
-    double salario;
+    public double salario;
 
-    private Funcionario(String nome, String cargo, int idade, double salario){
+    public Funcionario(String nome, double salario){
         this.nome = nome;
-        this.cargo = cargo;
-        this.idade = idade;
         this.salario = salario;
-    
-        System.out.println("Nome: " + nome);
-        System.out.println("Cargo: " + cargo);
-        System.out.println("Idade: " + idade);
-        System.out.println("Salário: " + salario);
     }
 
-    Funcionario(){
-        Funcionario func = new Funcionario("Mario", "Adm", 40, 4000);
+    public String obterInfo(){
+        return "Nome: " + nome + "\nSalário: " + salario;
     }
+
+    public void aumentarSalario(double aumento) {
+        salario += aumento;
+    }
+    public void aumentarSalario(int porcentagem) {
+        salario += salario * porcentagem / 100.0;
+    }
+
+    public void aumentarQualquerSalario(Funcionario func, double novoSalario) {
+        func.salario = novoSalario;
+    }
+
 }
 
 
